@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/styles.css' %}">
+    
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>Menu</header>
+        <ul>
+            <li><a href="{% url 'webapp-home' %}"><i class="fa fa-home"></i> Home </a></li>
+            <li><a href="{% url 'webapp-dss-train' %}"><i class="fa fa-desktop"></i> Train </a></li>
+            <li><a href="{% url 'webapp-dss-predict' %}"><i class="fa fa-desktop"></i> Predict </a></li>
+            <li><a href="{% url 'webapp-simulation' %}"><i class="fa fa-line-chart"></i> Simulation </a></li>
+        </ul>
+    </div>
+    <section>
+        <div class="trainMain">
+            <div class="trainx">
+                <h3>Breast Cancer Prediction Dataset
+                </h3>
+                <p>
+                    <br>This <a href="https://www.kaggle.com/merishnasuwal/breast-cancer-prediction-dataset">breast cancer dataset</a> was obtained from the University of Wisconsin Hospitals, Madison from Dr. William H. Wolberg.</p>
+            
+            </div>
+            <div class="trainy">
+                <form action="toTrain">
+                    <button class="trainBtn" type="submit">
+                        TRAIN
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class={{show}}>
+            <div class="trainAcc">
+                <h3> Model Accuracy:
+                    {{ Acc }}
+                </h3>
+            </div>
+    
+            <div class='train'>
+                <div class='train1'>
+                    <label for="">Breast Cancer Dataset Snippet</label>
+    
+                    {% autoescape off %}
+                    {{ BCdata|safe }}
+                    {% endautoescape %}
+                </div>
+            </div>
+    
+            <div class='train'>
+                <div class='train2'>
+                    <label for="">Data Describe</label>
+                    <div>
+                        {% autoescape off %}
+                    {{ data_des|safe }}
+                    {% endautoescape %}
+                    </div>
+                    
+                </div>
+                <div class="trainSmall">
+                    <label for="">Missing Data</label>
+                    {% autoescape off %}
+                    {{ dataMiss|safe }}
+                    {% endautoescape %}
+                </div>
+            </div>
+    
+            <div class='train'>
+                <div class='trainL'>
+                    <!-- <label for="">Data Correlation</label> -->
+                    <!-- <img alt="Data Correlation" src="{% static 'webapp/images/Corr_img.png' %}" /> -->
+                    {% autoescape off %}
+                    {{ heat|safe }}
+                    {% endautoescape %}
+                </div>
+    
+                <div class='train1'>
+                    <label for="">Cost Function</label>
+                    <img alt="Cost Function" src="{% static 'webapp/images/costF.png' %}" />
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

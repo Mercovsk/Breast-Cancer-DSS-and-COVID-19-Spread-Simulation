@@ -1,0 +1,5 @@
+db.sqlite3
+migrations
+django_project/__pycache__
+webapp/__pycache__
+settings.py

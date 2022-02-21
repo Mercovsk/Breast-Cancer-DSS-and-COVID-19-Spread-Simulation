@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/styles.css' %}">
+
+</head>
+<body>
+
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>Menu</header>
+        <ul>
+            <li><a href="{% url 'webapp-home' %}"><i class="fa fa-home"></i> Home </a></li>
+            <li><a href="{% url 'webapp-dss-train' %}"><i class="fa fa-desktop"></i> Train </a></li>
+            <li><a href="{% url 'webapp-dss-predict' %}"><i class="fa fa-desktop"></i> Predict </a></li>
+            <li><a href="{% url 'webapp-simulation' %}"><i class="fa fa-line-chart"></i> Simulation </a></li>
+        </ul>
+    </div>
+    <section>
+        <div class="grid">
+            <div class="window-1">
+                <form action="toSimulate">
+                    <h2>Simulation of Airborne Disease Spread</h2>
+                    <p class="text">Population</p>
+                    <input type="text" id="pop" name="population" placeholder="Max: 4500" required>
+                    <p class="text">Rate of Virus Spread</p>
+                    <input type="text" id="ros" name="r0" placeholder="Max: 3.5" required >
+                    <p class="text">Initial no. of Infected</p>
+                    <input type="text" id="noinf" name="init_infected" placeholder="Range 1 - 2" required >
+                    <p class="text">Rate of Recovery (Mild)</p>
+                    <input type="text" id="mild" name="mild_recovery" placeholder="Range: 0 - 1" required >
+                    <p class="text">Rate of Recovery (Severe)</p>
+                    <input type="text" id="severe" name="severe_recovery" placeholder="Range: 0 - 0.6" required >
+                    <p class="text">Fatality Rate</p>
+                    <input type="text" id="frate" name="fatality_rate" placeholder="<= Recovery Rate (Severe)" required >
+                    <br><button type="submit" id="button">Simulate</button>
+                    <p id="simulation"><!-- lalabas result on click ng calculate --> </p>
+                  </form> 
+            </div>
+        </div>
+    </section>
+</body>
+</html>

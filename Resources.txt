@@ -1,0 +1,16 @@
+
+1. https://towardsdatascience.com/creating-a-machine-learning-based-web-application-using-django-5444e0053a09
+#bali simple tutorial lang paano iconnect python code sa django
+
+2. https://www.youtube.com/watch?v=SPPvG5yZD7M
+#video tutorial paano connect code sa django
+
+3.https://machinelearningmastery.com/save-load-machine-learning-models-python-scikit-learn/
+#save load yung model via pickle 
+
+
+
+
+bali yung pagkatrain, export, tapos 
+
+tatawagin si exported-file.pickle kay predict tab sa predict button

@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'webapp/css/styles.css' %}">
+
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>Menu</header>
+        <ul>
+            <li><a href="{% url 'webapp-home' %}"><i class="fa fa-home"></i> Home </a></li>
+            <li><a href="{% url 'webapp-dss-train' %}"><i class="fa fa-desktop"></i> Train </a></li>
+            <li><a href="{% url 'webapp-dss-predict' %}"><i class="fa fa-desktop"></i> Predict </a></li>
+            <li><a href="{% url 'webapp-simulation' %}"><i class="fa fa-line-chart"></i> Simulation </a></li>
+        </ul>
+    </div>
+    <section class="predBox">
+        <div>
+            <h1>Prediction Breast Cancer Possibility</h1>
+            <div class="predInput">
+                <form action="toPredict">
+                    <label for="radius">Radius</label><br>
+                    <input type="text" id="radius" name="radius" value="" placeholder="Range: 6.981 - 28.11"><br>
+                    <label for="texture">Texture</label><br>
+                    <input type="text" id="texture" name="texture" value="" placeholder="Range: 9.71 - 39.28"><br><br>
+                    <label for="perimete">Perimeter</label><br>
+                    <input type="text" id="perimeter" name="perimeter" value="" placeholder="Range: 43.79 - 188.5"><br><br>
+                    <label for="area">Area</label><br>
+                    <input type="text" id="area" name="area" value="" placeholder="Range: 143.5 - 2501"><br><br>
+                    <label for="area">Smoothness</label><br>
+                    <input type="text" id="smooth" name="smooth" value="" placeholder="Range: 0.052630 - 0.1634"><br><br>
+                    <button type="submit" value="Predict">Predict</button>
+                </form>
+            </div>
+            <div class="predInput">
+                <div class='predX'>
+                  <h3>Your Inputs:</h3>
+                  <br>
+                    <ul>
+                        <li>Radius: {{radius}}</li><br>
+                    <li>Texture: {{texture}}</li><br>
+                    <li>Perimeter: {{perimeter}}</li><br>
+                    <li>Area: {{area}}</li><br>
+                    <li>Smoothness: {{smoothness}}</li><br>
+                    </ul>
+                </div>
+
+                <div class="predY">
+                    <h2> Results: </h2>
+                    <h2>
+                        {{predicted}}
+                    </h2>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
